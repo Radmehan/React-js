@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 
 export default function TextForm(props) {
@@ -13,10 +13,41 @@ export default function TextForm(props) {
 
 //lowercase function
 const handleLoClick = ()=>{
-  // console.log("Uppercase was clicked" + text);
+  // console.log("Lowercase was clicked" + text);
   let newText= text.toLowerCase();
   setText(newText);
+  
 }
+
+//Remove Punctuation function
+const handleRemovePunc = ()=>{
+  console.log("Remove punc was clicked");
+  var newText = text;
+  var newSentence = newText.match(/[^_\W]+/g).join(' ');
+  setText(newSentence);
+  }
+    
+//copy text
+const copyText = ()=>{
+  console.log('text coppied');
+  let text=document.getElementById('myBox');
+  text.select();
+  navigator.clipboard.writeText(text.value);
+}
+
+//clear text
+const extraSpace = ()=>{
+  let newText = text.split(/[ ]+/);
+  setText(newText.join(' '));
+}
+
+//clear text
+  const clearText = ()=>{
+    let newText = '';
+    setText(newText);
+  }
+  
+
 
 //event handle function
     const handleOnchange = (event)=>{
@@ -36,6 +67,10 @@ const handleLoClick = ()=>{
           </div>
           <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Convert to uppercase</button>
           <button className="btn btn-primary mx-2 my-2" onClick={handleLoClick}>Convert to lowercase</button>
+          <button className="btn btn-primary mx-2 my-2" onClick={handleRemovePunc}>Remove Punctuaton</button>
+          <button className="btn btn-primary mx-2 my-2" onClick={copyText}>Copy Text</button>
+          <button className="btn btn-primary mx-2 my-2" onClick={extraSpace}>Remove Extra Space</button>
+          <button className="btn btn-primary mx-2 my-2" onClick={clearText}>Clear Text</button>
         </div>
         <div className="container">
           <h2>our text summury</h2>
