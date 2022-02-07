@@ -60,10 +60,10 @@ const extraSpace = ()=>{
     
     return (
       <>     
-        <div className="container my-3">
+        <div className="container my-3" style={{color:props.mode==='dark'?'white':'#042743'}}>
           <h1>{props.heading}</h1>
           <div className="my-3">
-          <textarea className="form-control" value={text} onChange={handleOnchange} id='myBox' rows="8"></textarea>
+          <textarea className="form-control" style={{backgroundColor:props.mode==='dark'?'grey':'white', color:props.mode==='dark'?'white':'#042743'}} value={text} onChange={handleOnchange} id='myBox' rows="8"></textarea>
           </div>
           <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Convert to uppercase</button>
           <button className="btn btn-primary mx-2 my-2" onClick={handleLoClick}>Convert to lowercase</button>
@@ -72,12 +72,12 @@ const extraSpace = ()=>{
           <button className="btn btn-primary mx-2 my-2" onClick={extraSpace}>Remove Extra Space</button>
           <button className="btn btn-primary mx-2 my-2" onClick={clearText}>Clear Text</button>
         </div>
-        <div className="container">
+        <div className="container" style={{color:props.mode==='dark'?'white':'#042743'}}>
           <h2>our text summury</h2>
           <p>{text.split(' ').length} words and {text.length} characters</p>
           <p>{0.008 * text.split(' ').length} minutes take to read word</p>
           <h2>Preview</h2>
-          <p>{text}</p>
+          <p>{text.length>0 ? text: "Enter something on the textbox preview it here"}</p>
         </div>
       
       </>
