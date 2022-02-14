@@ -9,6 +9,7 @@ export default function TextForm(props) {
         // console.log("Uppercase was clicked" + text);
         let newText= text.toUpperCase();
         setText(newText);
+        props.showAlert('converted to uppercase','success');
     }
 
 //lowercase function
@@ -16,6 +17,7 @@ const handleLoClick = ()=>{
   // console.log("Lowercase was clicked" + text);
   let newText= text.toLowerCase();
   setText(newText);
+  props.showAlert('converted to lowercase','success');
   
 }
 
@@ -25,6 +27,7 @@ const handleRemovePunc = ()=>{
   var newText = text;
   var newSentence = newText.match(/[^_\W]+/g).join(' ');
   setText(newSentence);
+  props.showAlert('Punctuations remove successfully','success');
   }
     
 //copy text
@@ -33,18 +36,21 @@ const copyText = ()=>{
   let text=document.getElementById('myBox');
   text.select();
   navigator.clipboard.writeText(text.value);
+  props.showAlert('Text coppied successfully','success');
 }
 
-//clear text
+//extra space
 const extraSpace = ()=>{
   let newText = text.split(/[ ]+/);
   setText(newText.join(' '));
+  props.showAlert('Remvove extra space successfully','success');
 }
 
 //clear text
   const clearText = ()=>{
     let newText = '';
     setText(newText);
+    props.showAlert('Text cleared successfully','success');
   }
   
 
@@ -53,6 +59,7 @@ const extraSpace = ()=>{
     const handleOnchange = (event)=>{
         // console.log("On change");
         setText(event.target.value);
+        
     }
 
     // text = "New text"; // wrong way to set text
