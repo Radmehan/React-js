@@ -32,11 +32,19 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor='#042743';
       showAlert('Dark mode has been enable','success');
+      document.title = "TexUtils - Dark Mode"
+      // setInterval(() => {
+      //   document.title = "TexUtils is Amazing Mode"
+      // }, 2000);
+      // setInterval(() => {
+      //   document.title = "TexUtils download now"
+      // }, 1500);
     }
     else{
       setMode('light');
       document.body.style.backgroundColor='white';
       showAlert('Light mode has been enable','success');
+      document.title = "TexUtils - Light Mode"
     }
   }
  
