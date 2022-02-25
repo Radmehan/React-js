@@ -83,7 +83,7 @@ const extraSpace = ()=>{
         <div className="container" style={{color:props.mode==='dark'?'white':'#042743'}}>
           <h2>our text summury</h2>
           <p>{text.split(' ').filter((element)=>{ return element.length!==0}).length} words and {text.length} characters</p>
-          <p>{0.008 * text.split(' ').filter((element)=>{ return element.length!==0}).length} minutes take to read word</p>
+          <p>{0.008 * text.split(/\s+/).filter((element)=>{ return element.length!==0}).length} minutes take to read word</p>
           <h2>Preview</h2>
           <p>{text.length>0 ? text: "Nothing to preview"}</p>
         </div>
